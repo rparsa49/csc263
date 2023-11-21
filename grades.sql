@@ -1,0 +1,38 @@
+/* To run -- use "mysql -u root -p < 'filepath'" */
+
+/* CREATES DATABASE 'grades' */
+CREATE DATABASE IF NOT EXISTS grades;
+USE grades;
+
+/* CREATES TABLES FOR DATABASE */
+CREATE TABLE STUDENTS (
+    studentid INT NOT NULL AUTO_INCREMENT,
+    lastname CHAR(25) NOT NULL,
+    firstname CHAR(25) NOT NULL,
+    dob DATE NOT NULL,
+    CONSTRAINT STUDENTS_PK PRIMARY KEY (studentid)
+);
+
+CREATE TABLE COURSES (
+    courseid INT NOT NULL AUTO_INCREMENT,
+    coursename CHAR(25) NOT NULL,
+    credits INT NOT NULL,
+    CONSTRAINT COURSES_PK PRIMARY KEY (courseid) 
+);
+
+CREATE TABLE GRADES (
+    courseid INT NOT NULL,
+    studentid INT NOT NULL,
+    term CHAR(25) NOT NULL,
+    grade CHAR(3) NOT NULL,
+    CONSTRAINT GRADES_PK PRIMARY KEY (courseid, studentid, term),
+    CONSTRAINT GRADES_STUDENTS_FK FOREIGN KEY (studentid) REFERENCES STUDENTS(studentid),
+    CONSTRAINT GRADES_COURSES_FK FOREIGN KEY (courseid) REFERENCES COURSES(courseid)
+);
+
+/* INSERTS BASIC TEST DATA INTO DATABASE */
+INSERT INTO STUDENTS VALUES(null, 'Scandiffio', 'Michael', '2003-02-27');
+
+INSERT INTO COURSES VALUES(null, 'Calculus I', 3);
+
+INSERT INTO GRADES VALUES(1, 1, 'Fall 2021', 'A');
