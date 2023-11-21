@@ -20,19 +20,19 @@
 
                 echo "MySQL DB Connected successfully... <br>";
 
-                // $sql = "SELECT * FROM STUDENTS;";
-                // $result = $db->query($sql);
+                $sql = "SELECT * FROM `STUDENTS`;";
+                $result = $conn->query($sql);
 
-                // if(!$result) {
-                //     echo "<br> Bummer! " . $db->error;
-                // }
-                // else {
-                //     echo "<br> The result has $result->num-rows rows.";
-                // }
+                if(!$result) {
+                    echo "<br> Bummer! " . $conn->error;
+                }
+                else {
+                    echo "<br> The result has " . $result->num_rows . " rows. <br>";
+                }
 
                 $conn->close();
 
-                echo "DB Disconnect";
+                echo "<br> DB Disconnect";
         ?></p>
     </body>
 </html>
