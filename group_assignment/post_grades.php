@@ -4,7 +4,7 @@
     <title>PHP Connect MySQL Database</title>
 </head>
 <body>
-    <h1>PHP Connect MySQL Database</h1>
+    <h1>Uploading Grades...</h1>
     <p><?php
         $servername = "localhost";
         $username = "root";

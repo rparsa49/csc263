@@ -2,6 +2,22 @@
 <html>
     <head>
         <title>Receive Transcript</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
     </head>
     <body>
         <h1>Receive Transcript</h1>
@@ -35,10 +51,11 @@
                         echo $first_name . " " . $last_name . "'s Transcript";
                     }
 
-                    $sql_grades = "SELECT courseid, term, grade 
+                    $sql_grades = "SELECT COURSES.coursename, GRADES.term, GRADES.grade 
                                     FROM `GRADES` 
-                                    JOIN `STUDENTS` ON grades.studentid = students.studentid
-                                    WHERE students.studentid = '$id';";
+                                    JOIN `STUDENTS` ON GRADES.studentid = STUDENTS.studentid
+                                    JOIN `COURSES` ON GRADES.courseid = COURSES.courseid
+                                    WHERE STUDENTS.studentid = '$id';";
                     $result_grades = $conn->query($sql_grades);
 
                     $table = $result_grades->fetch_all();
@@ -48,6 +65,7 @@
                     }
                     else {
                         echo "<table>";
+                        echo "<tr><th>Course Name</th><th>Term</th><th>Grade</th></tr>";
                         foreach ($table as $row) {
                             echo "<tr>";
                             foreach ($row as $col) {
