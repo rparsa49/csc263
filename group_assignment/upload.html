@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grade Uploader</title>
+</head>
+
+<body>
+    <h1>Upload Your Grades!</h1>
+    <form method="POST" action="post_grades.php">
+        <label for="courseid">Enter the course ID for this grade: </label>
+        <input type="text" id="courseid" name="courseid"><br><br>
+        <label for="studentid">Enter the student ID for this grade: </label>
+        <input type="text" id="studentid" name="studentid"><br><br>
+        <label for="term">Enter the term for this grade (IE: 'Fall 2021'): </label>
+        <input type="text" id="term" name="term"><br><br>
+        <label for="grade">Enter the grade (IE: A+, A, A-, etc.): </label>
+        <input type="text" id="grade" name="grade"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
