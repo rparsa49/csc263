@@ -3,9 +3,22 @@
     <head>
         <title>Receive Transcript</title>
         <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                text-align: center;
+                margin: 50px;
+            }
+
+            h1 {
+                color: #0066cc;
+            }
+
             table {
                 border-collapse: collapse;
                 width: 100%;
+                margin-top: 20px;
             }
 
             th, td {
@@ -16,6 +29,20 @@
 
             th {
                 background-color: #f2f2f2;
+            }
+
+            a {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 10px;
+                text-decoration: none;
+                color: #fff;
+                background-color: #4caf50;
+                border-radius: 5px;
+            }
+
+            a:hover {
+                background-color: #45a049;
             }
         </style>
     </head>
